@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhaozheng.mapper.TRecruitmentMapper">
+  <resultMap id="BaseResultMap" type="com.zhaozheng.domain.TRecruitment">
+    <!--@mbg.generated-->
+    <!--@Table t_recruitment-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="experience" jdbcType="VARCHAR" property="experience" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="minimum_wage" jdbcType="VARCHAR" property="minimumWage" />
+    <result column="maximum_wage" jdbcType="VARCHAR" property="maximumWage" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="desc" jdbcType="LONGVARCHAR" property="desc" />
+    <result column="contacts" jdbcType="VARCHAR" property="contacts" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="cid" jdbcType="VARCHAR" property="cid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, address, experience, education, minimum_wage, maximum_wage, tag, `desc`, 
+    contacts, phone, cid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_recruitment
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from t_recruitment
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zhaozheng.domain.TRecruitment">
+    <!--@mbg.generated-->
+    insert into t_recruitment (id, title, address, 
+      experience, education, minimum_wage, 
+      maximum_wage, tag, `desc`, 
+      contacts, phone, cid
+      )
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{experience,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{minimumWage,jdbcType=VARCHAR}, 
+      #{maximumWage,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{desc,jdbcType=LONGVARCHAR}, 
+      #{contacts,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{cid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhaozheng.domain.TRecruitment">
+    <!--@mbg.generated-->
+    insert into t_recruitment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="experience != null">
+        experience,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="minimumWage != null">
+        minimum_wage,
+      </if>
+      <if test="maximumWage != null">
+        maximum_wage,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="desc != null">
+        `desc`,
+      </if>
+      <if test="contacts != null">
+        contacts,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null">
+        #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="minimumWage != null">
+        #{minimumWage,jdbcType=VARCHAR},
+      </if>
+      <if test="maximumWage != null">
+        #{maximumWage,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="contacts != null">
+        #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhaozheng.domain.TRecruitment">
+    <!--@mbg.generated-->
+    update t_recruitment
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null">
+        experience = #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="minimumWage != null">
+        minimum_wage = #{minimumWage,jdbcType=VARCHAR},
+      </if>
+      <if test="maximumWage != null">
+        maximum_wage = #{maximumWage,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        `desc` = #{desc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="contacts != null">
+        contacts = #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhaozheng.domain.TRecruitment">
+    <!--@mbg.generated-->
+    update t_recruitment
+    set title = #{title,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      experience = #{experience,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      minimum_wage = #{minimumWage,jdbcType=VARCHAR},
+      maximum_wage = #{maximumWage,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      `desc` = #{desc,jdbcType=LONGVARCHAR},
+      contacts = #{contacts,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      cid = #{cid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

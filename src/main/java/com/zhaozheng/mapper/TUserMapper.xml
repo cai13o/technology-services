@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhaozheng.mapper.TUserMapper">
+  <resultMap id="BaseResultMap" type="com.zhaozheng.domain.TUser">
+    <!--@mbg.generated-->
+    <!--@Table t_user-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="BeforeName" jdbcType="VARCHAR" property="beforename" />
+    <result column="IDCard" jdbcType="VARCHAR" property="idcard" />
+    <result column="Sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birthdate" jdbcType="DATE" property="birthdate" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="Political" jdbcType="VARCHAR" property="political" />
+    <result column="leagueTime" jdbcType="DATE" property="leaguetime" />
+    <result column="partyTime" jdbcType="DATE" property="partytime" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="marriage" jdbcType="VARCHAR" property="marriage" />
+    <result column="healthy" jdbcType="VARCHAR" property="healthy" />
+    <result column="stature" jdbcType="VARCHAR" property="stature" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="Present_address" jdbcType="VARCHAR" property="presentAddress" />
+    <result column="natives" jdbcType="VARCHAR" property="natives" />
+    <result column="birthplace" jdbcType="VARCHAR" property="birthplace" />
+    <result column="Household_type" jdbcType="VARCHAR" property="householdType" />
+    <result column="Household_address" jdbcType="VARCHAR" property="householdAddress" />
+    <result column="Household_police" jdbcType="VARCHAR" property="householdPolice" />
+    <result column="reportTime" jdbcType="DATE" property="reporttime" />
+    <result column="JobTime" jdbcType="DATE" property="jobtime" />
+    <result column="seniority" jdbcType="VARCHAR" property="seniority" />
+    <result column="Firm_seniority" jdbcType="VARCHAR" property="firmSeniority" />
+    <result column="accessory" jdbcType="VARCHAR" property="accessory" />
+    <result column="opdate" jdbcType="TIMESTAMP" property="opdate" />
+    <result column="opflag" jdbcType="VARCHAR" property="opflag" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="startDate" jdbcType="DATE" property="startdate" />
+    <result column="endDate" jdbcType="DATE" property="enddate" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="cid" jdbcType="VARCHAR" property="cid" />
+    <result column="did" jdbcType="VARCHAR" property="did" />
+    <result column="jid" jdbcType="VARCHAR" property="jid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, BeforeName, IDCard, Sex, birthdate, age, nation, Political, leagueTime, 
+    partyTime, education, `degree`, marriage, healthy, stature, weight, Present_address, 
+    natives, birthplace, Household_type, Household_address, Household_police, reportTime, 
+    JobTime, seniority, Firm_seniority, accessory, opdate, opflag, username, `password`, 
+    `state`, `operator`, startDate, endDate, img, mobile, cid, did, jid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from t_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zhaozheng.domain.TUser">
+    <!--@mbg.generated-->
+    insert into t_user (id, `name`, BeforeName, 
+      IDCard, Sex, birthdate, 
+      age, nation, Political, 
+      leagueTime, partyTime, education, 
+      `degree`, marriage, healthy, 
+      stature, weight, Present_address, 
+      natives, birthplace, Household_type, 
+      Household_address, Household_police, reportTime, 
+      JobTime, seniority, Firm_seniority, 
+      accessory, opdate, opflag, 
+      username, `password`, `state`, 
+      `operator`, startDate, endDate, 
+      img, mobile, cid, did, 
+      jid)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{beforename,jdbcType=VARCHAR}, 
+      #{idcard,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthdate,jdbcType=DATE}, 
+      #{age,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{political,jdbcType=VARCHAR}, 
+      #{leaguetime,jdbcType=DATE}, #{partytime,jdbcType=DATE}, #{education,jdbcType=VARCHAR}, 
+      #{degree,jdbcType=VARCHAR}, #{marriage,jdbcType=VARCHAR}, #{healthy,jdbcType=VARCHAR}, 
+      #{stature,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{presentAddress,jdbcType=VARCHAR}, 
+      #{natives,jdbcType=VARCHAR}, #{birthplace,jdbcType=VARCHAR}, #{householdType,jdbcType=VARCHAR}, 
+      #{householdAddress,jdbcType=VARCHAR}, #{householdPolice,jdbcType=VARCHAR}, #{reporttime,jdbcType=DATE}, 
+      #{jobtime,jdbcType=DATE}, #{seniority,jdbcType=VARCHAR}, #{firmSeniority,jdbcType=VARCHAR}, 
+      #{accessory,jdbcType=VARCHAR}, #{opdate,jdbcType=TIMESTAMP}, #{opflag,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{operator,jdbcType=VARCHAR}, #{startdate,jdbcType=DATE}, #{enddate,jdbcType=DATE}, 
+      #{img,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{cid,jdbcType=VARCHAR}, #{did,jdbcType=VARCHAR}, 
+      #{jid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhaozheng.domain.TUser">
+    <!--@mbg.generated-->
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="beforename != null">
+        BeforeName,
+      </if>
+      <if test="idcard != null">
+        IDCard,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+      <if test="birthdate != null">
+        birthdate,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="political != null">
+        Political,
+      </if>
+      <if test="leaguetime != null">
+        leagueTime,
+      </if>
+      <if test="partytime != null">
+        partyTime,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="degree != null">
+        `degree`,
+      </if>
+      <if test="marriage != null">
+        marriage,
+      </if>
+      <if test="healthy != null">
+        healthy,
+      </if>
+      <if test="stature != null">
+        stature,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="presentAddress != null">
+        Present_address,
+      </if>
+      <if test="natives != null">
+        natives,
+      </if>
+      <if test="birthplace != null">
+        birthplace,
+      </if>
+      <if test="householdType != null">
+        Household_type,
+      </if>
+      <if test="householdAddress != null">
+        Household_address,
+      </if>
+      <if test="householdPolice != null">
+        Household_police,
+      </if>
+      <if test="reporttime != null">
+        reportTime,
+      </if>
+      <if test="jobtime != null">
+        JobTime,
+      </if>
+      <if test="seniority != null">
+        seniority,
+      </if>
+      <if test="firmSeniority != null">
+        Firm_seniority,
+      </if>
+      <if test="accessory != null">
+        accessory,
+      </if>
+      <if test="opdate != null">
+        opdate,
+      </if>
+      <if test="opflag != null">
+        opflag,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="operator != null">
+        `operator`,
+      </if>
+      <if test="startdate != null">
+        startDate,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="did != null">
+        did,
+      </if>
+      <if test="jid != null">
+        jid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="beforename != null">
+        #{beforename,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null">
+        #{birthdate,jdbcType=DATE},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null">
+        #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="leaguetime != null">
+        #{leaguetime,jdbcType=DATE},
+      </if>
+      <if test="partytime != null">
+        #{partytime,jdbcType=DATE},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="marriage != null">
+        #{marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="healthy != null">
+        #{healthy,jdbcType=VARCHAR},
+      </if>
+      <if test="stature != null">
+        #{stature,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="presentAddress != null">
+        #{presentAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="natives != null">
+        #{natives,jdbcType=VARCHAR},
+      </if>
+      <if test="birthplace != null">
+        #{birthplace,jdbcType=VARCHAR},
+      </if>
+      <if test="householdType != null">
+        #{householdType,jdbcType=VARCHAR},
+      </if>
+      <if test="householdAddress != null">
+        #{householdAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="householdPolice != null">
+        #{householdPolice,jdbcType=VARCHAR},
+      </if>
+      <if test="reporttime != null">
+        #{reporttime,jdbcType=DATE},
+      </if>
+      <if test="jobtime != null">
+        #{jobtime,jdbcType=DATE},
+      </if>
+      <if test="seniority != null">
+        #{seniority,jdbcType=VARCHAR},
+      </if>
+      <if test="firmSeniority != null">
+        #{firmSeniority,jdbcType=VARCHAR},
+      </if>
+      <if test="accessory != null">
+        #{accessory,jdbcType=VARCHAR},
+      </if>
+      <if test="opdate != null">
+        #{opdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opflag != null">
+        #{opflag,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=DATE},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=DATE},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="did != null">
+        #{did,jdbcType=VARCHAR},
+      </if>
+      <if test="jid != null">
+        #{jid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhaozheng.domain.TUser">
+    <!--@mbg.generated-->
+    update t_user
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="beforename != null">
+        BeforeName = #{beforename,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        IDCard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null">
+        birthdate = #{birthdate,jdbcType=DATE},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null">
+        Political = #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="leaguetime != null">
+        leagueTime = #{leaguetime,jdbcType=DATE},
+      </if>
+      <if test="partytime != null">
+        partyTime = #{partytime,jdbcType=DATE},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        `degree` = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="marriage != null">
+        marriage = #{marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="healthy != null">
+        healthy = #{healthy,jdbcType=VARCHAR},
+      </if>
+      <if test="stature != null">
+        stature = #{stature,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="presentAddress != null">
+        Present_address = #{presentAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="natives != null">
+        natives = #{natives,jdbcType=VARCHAR},
+      </if>
+      <if test="birthplace != null">
+        birthplace = #{birthplace,jdbcType=VARCHAR},
+      </if>
+      <if test="householdType != null">
+        Household_type = #{householdType,jdbcType=VARCHAR},
+      </if>
+      <if test="householdAddress != null">
+        Household_address = #{householdAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="householdPolice != null">
+        Household_police = #{householdPolice,jdbcType=VARCHAR},
+      </if>
+      <if test="reporttime != null">
+        reportTime = #{reporttime,jdbcType=DATE},
+      </if>
+      <if test="jobtime != null">
+        JobTime = #{jobtime,jdbcType=DATE},
+      </if>
+      <if test="seniority != null">
+        seniority = #{seniority,jdbcType=VARCHAR},
+      </if>
+      <if test="firmSeniority != null">
+        Firm_seniority = #{firmSeniority,jdbcType=VARCHAR},
+      </if>
+      <if test="accessory != null">
+        accessory = #{accessory,jdbcType=VARCHAR},
+      </if>
+      <if test="opdate != null">
+        opdate = #{opdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opflag != null">
+        opflag = #{opflag,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        `operator` = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        startDate = #{startdate,jdbcType=DATE},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=DATE},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="did != null">
+        did = #{did,jdbcType=VARCHAR},
+      </if>
+      <if test="jid != null">
+        jid = #{jid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhaozheng.domain.TUser">
+    <!--@mbg.generated-->
+    update t_user
+    set `name` = #{name,jdbcType=VARCHAR},
+      BeforeName = #{beforename,jdbcType=VARCHAR},
+      IDCard = #{idcard,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=VARCHAR},
+      birthdate = #{birthdate,jdbcType=DATE},
+      age = #{age,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      Political = #{political,jdbcType=VARCHAR},
+      leagueTime = #{leaguetime,jdbcType=DATE},
+      partyTime = #{partytime,jdbcType=DATE},
+      education = #{education,jdbcType=VARCHAR},
+      `degree` = #{degree,jdbcType=VARCHAR},
+      marriage = #{marriage,jdbcType=VARCHAR},
+      healthy = #{healthy,jdbcType=VARCHAR},
+      stature = #{stature,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      Present_address = #{presentAddress,jdbcType=VARCHAR},
+      natives = #{natives,jdbcType=VARCHAR},
+      birthplace = #{birthplace,jdbcType=VARCHAR},
+      Household_type = #{householdType,jdbcType=VARCHAR},
+      Household_address = #{householdAddress,jdbcType=VARCHAR},
+      Household_police = #{householdPolice,jdbcType=VARCHAR},
+      reportTime = #{reporttime,jdbcType=DATE},
+      JobTime = #{jobtime,jdbcType=DATE},
+      seniority = #{seniority,jdbcType=VARCHAR},
+      Firm_seniority = #{firmSeniority,jdbcType=VARCHAR},
+      accessory = #{accessory,jdbcType=VARCHAR},
+      opdate = #{opdate,jdbcType=TIMESTAMP},
+      opflag = #{opflag,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      `state` = #{state,jdbcType=VARCHAR},
+      `operator` = #{operator,jdbcType=VARCHAR},
+      startDate = #{startdate,jdbcType=DATE},
+      endDate = #{enddate,jdbcType=DATE},
+      img = #{img,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      cid = #{cid,jdbcType=VARCHAR},
+      did = #{did,jdbcType=VARCHAR},
+      jid = #{jid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

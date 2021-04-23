@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhaozheng.mapper.TJobWantedMapper">
+  <resultMap id="BaseResultMap" type="com.zhaozheng.domain.TJobWanted">
+    <!--@mbg.generated-->
+    <!--@Table t_job_wanted-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="fullorpart" jdbcType="VARCHAR" property="fullorpart" />
+    <result column="jobs" jdbcType="VARCHAR" property="jobs" />
+    <result column="salary" jdbcType="VARCHAR" property="salary" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, city, fullorpart, jobs, salary, `status`, `uid`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_job_wanted
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from t_job_wanted
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zhaozheng.domain.TJobWanted">
+    <!--@mbg.generated-->
+    insert into t_job_wanted (id, city, fullorpart, 
+      jobs, salary, `status`, 
+      `uid`)
+    values (#{id,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{fullorpart,jdbcType=VARCHAR}, 
+      #{jobs,jdbcType=VARCHAR}, #{salary,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{uid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhaozheng.domain.TJobWanted">
+    <!--@mbg.generated-->
+    insert into t_job_wanted
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="fullorpart != null">
+        fullorpart,
+      </if>
+      <if test="jobs != null">
+        jobs,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="uid != null">
+        `uid`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="fullorpart != null">
+        #{fullorpart,jdbcType=VARCHAR},
+      </if>
+      <if test="jobs != null">
+        #{jobs,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhaozheng.domain.TJobWanted">
+    <!--@mbg.generated-->
+    update t_job_wanted
+    <set>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="fullorpart != null">
+        fullorpart = #{fullorpart,jdbcType=VARCHAR},
+      </if>
+      <if test="jobs != null">
+        jobs = #{jobs,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        `uid` = #{uid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhaozheng.domain.TJobWanted">
+    <!--@mbg.generated-->
+    update t_job_wanted
+    set city = #{city,jdbcType=VARCHAR},
+      fullorpart = #{fullorpart,jdbcType=VARCHAR},
+      jobs = #{jobs,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=VARCHAR},
+      `uid` = #{uid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

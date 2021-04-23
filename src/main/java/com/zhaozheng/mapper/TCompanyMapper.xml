@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhaozheng.mapper.TCompanyMapper">
+  <resultMap id="BaseResultMap" type="com.zhaozheng.domain.TCompany">
+    <!--@mbg.generated-->
+    <!--@Table t_company-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="typeid" jdbcType="VARCHAR" property="typeid" />
+    <result column="credit_code" jdbcType="VARCHAR" property="creditCode" />
+    <result column="corp" jdbcType="VARCHAR" property="corp" />
+    <result column="registered_capital" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="registerDate" jdbcType="DATE" property="registerdate" />
+    <result column="indate" jdbcType="VARCHAR" property="indate" />
+    <result column="registered_address" jdbcType="VARCHAR" property="registeredAddress" />
+    <result column="business_cope" jdbcType="LONGVARCHAR" property="businessCope" />
+    <result column="contact" jdbcType="VARCHAR" property="contact" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="licenseNo" jdbcType="VARCHAR" property="licenseno" />
+    <result column="registration_authority" jdbcType="VARCHAR" property="registrationAuthority" />
+    <result column="alternate_phone" jdbcType="VARCHAR" property="alternatePhone" />
+    <result column="business_address" jdbcType="VARCHAR" property="businessAddress" />
+    <result column="desc" jdbcType="LONGVARCHAR" property="desc" />
+    <result column="photo" jdbcType="VARCHAR" property="photo" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, area, typeid, credit_code, corp, registered_capital, registerDate, indate, 
+    registered_address, business_cope, contact, phone, licenseNo, registration_authority, 
+    alternate_phone, business_address, `desc`, photo, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_company
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from t_company
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zhaozheng.domain.TCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_company (`name`, area, typeid, 
+      credit_code, corp, registered_capital, 
+      registerDate, indate, registered_address, 
+      business_cope, contact, phone, 
+      licenseNo, registration_authority, alternate_phone, 
+      business_address, `desc`, photo, 
+      `status`)
+    values (#{name,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{typeid,jdbcType=VARCHAR}, 
+      #{creditCode,jdbcType=VARCHAR}, #{corp,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR}, 
+      #{registerdate,jdbcType=DATE}, #{indate,jdbcType=VARCHAR}, #{registeredAddress,jdbcType=VARCHAR}, 
+      #{businessCope,jdbcType=LONGVARCHAR}, #{contact,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{licenseno,jdbcType=VARCHAR}, #{registrationAuthority,jdbcType=VARCHAR}, #{alternatePhone,jdbcType=VARCHAR}, 
+      #{businessAddress,jdbcType=VARCHAR}, #{desc,jdbcType=LONGVARCHAR}, #{photo,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zhaozheng.domain.TCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    <selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE">
+      select replace(uuid(),'-','')
+    </selectKey>
+    insert into t_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+    id,
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="typeid != null">
+        typeid,
+      </if>
+      <if test="creditCode != null">
+        credit_code,
+      </if>
+      <if test="corp != null">
+        corp,
+      </if>
+      <if test="registeredCapital != null">
+        registered_capital,
+      </if>
+      <if test="registerdate != null">
+        registerDate,
+      </if>
+      <if test="indate != null">
+        indate,
+      </if>
+      <if test="registeredAddress != null">
+        registered_address,
+      </if>
+      <if test="businessCope != null">
+        business_cope,
+      </if>
+      <if test="contact != null">
+        contact,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="licenseno != null">
+        licenseNo,
+      </if>
+      <if test="registrationAuthority != null">
+        registration_authority,
+      </if>
+      <if test="alternatePhone != null">
+        alternate_phone,
+      </if>
+      <if test="businessAddress != null">
+        business_address,
+      </if>
+      <if test="desc != null">
+        `desc`,
+      </if>
+      <if test="photo != null">
+        photo,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+    #{id},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCode != null">
+        #{creditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="corp != null">
+        #{corp,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        #{registerdate,jdbcType=DATE},
+      </if>
+      <if test="indate != null">
+        #{indate,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredAddress != null">
+        #{registeredAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCope != null">
+        #{businessCope,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseno != null">
+        #{licenseno,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationAuthority != null">
+        #{registrationAuthority,jdbcType=VARCHAR},
+      </if>
+      <if test="alternatePhone != null">
+        #{alternatePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="businessAddress != null">
+        #{businessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="photo != null">
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhaozheng.domain.TCompany">
+    <!--@mbg.generated-->
+    update t_company
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        typeid = #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCode != null">
+        credit_code = #{creditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="corp != null">
+        corp = #{corp,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        registered_capital = #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        registerDate = #{registerdate,jdbcType=DATE},
+      </if>
+      <if test="indate != null">
+        indate = #{indate,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredAddress != null">
+        registered_address = #{registeredAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCope != null">
+        business_cope = #{businessCope,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="contact != null">
+        contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseno != null">
+        licenseNo = #{licenseno,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationAuthority != null">
+        registration_authority = #{registrationAuthority,jdbcType=VARCHAR},
+      </if>
+      <if test="alternatePhone != null">
+        alternate_phone = #{alternatePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="businessAddress != null">
+        business_address = #{businessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        `desc` = #{desc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="photo != null">
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhaozheng.domain.TCompany">
+    <!--@mbg.generated-->
+    update t_company
+    set `name` = #{name,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      typeid = #{typeid,jdbcType=VARCHAR},
+      credit_code = #{creditCode,jdbcType=VARCHAR},
+      corp = #{corp,jdbcType=VARCHAR},
+      registered_capital = #{registeredCapital,jdbcType=VARCHAR},
+      registerDate = #{registerdate,jdbcType=DATE},
+      indate = #{indate,jdbcType=VARCHAR},
+      registered_address = #{registeredAddress,jdbcType=VARCHAR},
+      business_cope = #{businessCope,jdbcType=LONGVARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      licenseNo = #{licenseno,jdbcType=VARCHAR},
+      registration_authority = #{registrationAuthority,jdbcType=VARCHAR},
+      alternate_phone = #{alternatePhone,jdbcType=VARCHAR},
+      business_address = #{businessAddress,jdbcType=VARCHAR},
+      `desc` = #{desc,jdbcType=LONGVARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+<!--auto generated by MybatisCodeHelper on 2021-04-16-->
+  <select id="findByAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_company
+    <where>
+    <if test="id != null">
+     and id=#{id,jdbcType=VARCHAR}</if>
+    <if test="name != null">
+     and `name`=#{name,jdbcType=VARCHAR}</if>
+    <if test="area != null">
+     and area=#{area,jdbcType=VARCHAR}</if>
+    <if test="typeid != null">
+     and typeid=#{typeid,jdbcType=VARCHAR}</if>
+    <if test="creditCode != null">
+     and credit_code=#{creditCode,jdbcType=VARCHAR}</if>
+    <if test="corp != null">
+     and corp=#{corp,jdbcType=VARCHAR}</if>
+    <if test="registeredCapital != null">
+     and registered_capital=#{registeredCapital,jdbcType=VARCHAR}</if>
+    <if test="registerdate != null">
+     and registerDate=#{registerdate,jdbcType=DATE}</if>
+    <if test="indate != null">
+     and indate=#{indate,jdbcType=VARCHAR}</if>
+    <if test="registeredAddress != null">
+     and registered_address=#{registeredAddress,jdbcType=VARCHAR}</if>
+    <if test="businessCope != null">
+     and business_cope=#{businessCope,jdbcType=LONGVARCHAR}</if>
+    <if test="contact != null">
+     and contact=#{contact,jdbcType=VARCHAR}</if>
+    <if test="phone != null">
+     and phone=#{phone,jdbcType=VARCHAR}</if>
+    <if test="licenseno != null">
+     and licenseNo=#{licenseno,jdbcType=VARCHAR}</if>
+    <if test="registrationAuthority != null">
+     and registration_authority=#{registrationAuthority,jdbcType=VARCHAR}</if>
+    <if test="alternatePhone != null">
+     and alternate_phone=#{alternatePhone,jdbcType=VARCHAR}</if>
+    <if test="businessAddress != null">
+     and business_address=#{businessAddress,jdbcType=VARCHAR}</if>
+    <if test="desc != null">
+     and `desc`=#{desc,jdbcType=LONGVARCHAR}</if>
+    <if test="photo != null">
+     and photo=#{photo,jdbcType=VARCHAR}</if>
+    <if test="status != null">
+     and `status`=#{status,jdbcType=VARCHAR}</if>
+    </where>
+  </select>
+</mapper>

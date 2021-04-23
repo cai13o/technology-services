@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhaozheng.mapper.TNewsMapper">
+  <resultMap id="BaseResultMap" type="com.zhaozheng.domain.TNews">
+    <!--@mbg.generated-->
+    <!--@Table t_news-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="validite" jdbcType="DATE" property="validite" />
+    <result column="issueDate" jdbcType="TIMESTAMP" property="issuedate" />
+    <result column="brief" jdbcType="LONGVARCHAR" property="brief" />
+    <result column="text" jdbcType="LONGVARCHAR" property="text" />
+    <result column="file" jdbcType="LONGVARCHAR" property="file" />
+    <result column="titlepicfile" jdbcType="LONGVARCHAR" property="titlepicfile" />
+    <result column="audit_status" jdbcType="VARCHAR" property="auditStatus" />
+    <result column="audit_opinion" jdbcType="LONGVARCHAR" property="auditOpinion" />
+    <result column="auditor" jdbcType="VARCHAR" property="auditor" />
+    <result column="auditDate" jdbcType="TIMESTAMP" property="auditdate" />
+    <result column="importance" jdbcType="VARCHAR" property="importance" />
+    <result column="news_source" jdbcType="VARCHAR" property="newsSource" />
+    <result column="disc" jdbcType="VARCHAR" property="disc" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="top" jdbcType="VARCHAR" property="top" />
+    <result column="ctr" jdbcType="INTEGER" property="ctr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `type`, title, author, validite, issueDate, brief, `text`, `file`, titlepicfile, 
+    audit_status, audit_opinion, auditor, auditDate, importance, news_source, disc, tag, 
+    `top`, ctr
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_news
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from t_news
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zhaozheng.domain.TNews">
+    <!--@mbg.generated-->
+    insert into t_news (id, `type`, title, 
+      author, validite, issueDate, 
+      brief, `text`, `file`, 
+      titlepicfile, audit_status, audit_opinion, 
+      auditor, auditDate, importance, 
+      news_source, disc, tag, 
+      `top`, ctr)
+    values (#{id,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{validite,jdbcType=DATE}, #{issuedate,jdbcType=TIMESTAMP}, 
+      #{brief,jdbcType=LONGVARCHAR}, #{text,jdbcType=LONGVARCHAR}, #{file,jdbcType=LONGVARCHAR}, 
+      #{titlepicfile,jdbcType=LONGVARCHAR}, #{auditStatus,jdbcType=VARCHAR}, #{auditOpinion,jdbcType=LONGVARCHAR}, 
+      #{auditor,jdbcType=VARCHAR}, #{auditdate,jdbcType=TIMESTAMP}, #{importance,jdbcType=VARCHAR}, 
+      #{newsSource,jdbcType=VARCHAR}, #{disc,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, 
+      #{top,jdbcType=VARCHAR}, #{ctr,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhaozheng.domain.TNews">
+    <!--@mbg.generated-->
+    insert into t_news
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="validite != null">
+        validite,
+      </if>
+      <if test="issuedate != null">
+        issueDate,
+      </if>
+      <if test="brief != null">
+        brief,
+      </if>
+      <if test="text != null">
+        `text`,
+      </if>
+      <if test="file != null">
+        `file`,
+      </if>
+      <if test="titlepicfile != null">
+        titlepicfile,
+      </if>
+      <if test="auditStatus != null">
+        audit_status,
+      </if>
+      <if test="auditOpinion != null">
+        audit_opinion,
+      </if>
+      <if test="auditor != null">
+        auditor,
+      </if>
+      <if test="auditdate != null">
+        auditDate,
+      </if>
+      <if test="importance != null">
+        importance,
+      </if>
+      <if test="newsSource != null">
+        news_source,
+      </if>
+      <if test="disc != null">
+        disc,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="top != null">
+        `top`,
+      </if>
+      <if test="ctr != null">
+        ctr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="validite != null">
+        #{validite,jdbcType=DATE},
+      </if>
+      <if test="issuedate != null">
+        #{issuedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="brief != null">
+        #{brief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="text != null">
+        #{text,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="file != null">
+        #{file,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="titlepicfile != null">
+        #{titlepicfile,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditOpinion != null">
+        #{auditOpinion,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="auditor != null">
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="auditdate != null">
+        #{auditdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="importance != null">
+        #{importance,jdbcType=VARCHAR},
+      </if>
+      <if test="newsSource != null">
+        #{newsSource,jdbcType=VARCHAR},
+      </if>
+      <if test="disc != null">
+        #{disc,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="top != null">
+        #{top,jdbcType=VARCHAR},
+      </if>
+      <if test="ctr != null">
+        #{ctr,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhaozheng.domain.TNews">
+    <!--@mbg.generated-->
+    update t_news
+    <set>
+      <if test="type != null">
+        `type` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="validite != null">
+        validite = #{validite,jdbcType=DATE},
+      </if>
+      <if test="issuedate != null">
+        issueDate = #{issuedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="brief != null">
+        brief = #{brief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="text != null">
+        `text` = #{text,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="file != null">
+        `file` = #{file,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="titlepicfile != null">
+        titlepicfile = #{titlepicfile,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        audit_status = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditOpinion != null">
+        audit_opinion = #{auditOpinion,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="auditor != null">
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="auditdate != null">
+        auditDate = #{auditdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="importance != null">
+        importance = #{importance,jdbcType=VARCHAR},
+      </if>
+      <if test="newsSource != null">
+        news_source = #{newsSource,jdbcType=VARCHAR},
+      </if>
+      <if test="disc != null">
+        disc = #{disc,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="top != null">
+        `top` = #{top,jdbcType=VARCHAR},
+      </if>
+      <if test="ctr != null">
+        ctr = #{ctr,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhaozheng.domain.TNews">
+    <!--@mbg.generated-->
+    update t_news
+    set `type` = #{type,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      validite = #{validite,jdbcType=DATE},
+      issueDate = #{issuedate,jdbcType=TIMESTAMP},
+      brief = #{brief,jdbcType=LONGVARCHAR},
+      `text` = #{text,jdbcType=LONGVARCHAR},
+      `file` = #{file,jdbcType=LONGVARCHAR},
+      titlepicfile = #{titlepicfile,jdbcType=LONGVARCHAR},
+      audit_status = #{auditStatus,jdbcType=VARCHAR},
+      audit_opinion = #{auditOpinion,jdbcType=LONGVARCHAR},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      auditDate = #{auditdate,jdbcType=TIMESTAMP},
+      importance = #{importance,jdbcType=VARCHAR},
+      news_source = #{newsSource,jdbcType=VARCHAR},
+      disc = #{disc,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      `top` = #{top,jdbcType=VARCHAR},
+      ctr = #{ctr,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+<!--auto generated by MybatisCodeHelper on 2021-04-21-->
+  <select id="findByAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_news
+    <where>
+    <if test="id != null">
+     and id=#{id,jdbcType=VARCHAR}</if>
+    <if test="type != null">
+     and `type`=#{type,jdbcType=VARCHAR}</if>
+    <if test="title != null">
+     and title=#{title,jdbcType=VARCHAR}</if>
+    <if test="author != null">
+     and author=#{author,jdbcType=VARCHAR}</if>
+    <if test="validite != null">
+     and validite=#{validite,jdbcType=DATE}</if>
+    <if test="issuedate != null">
+     and issueDate=#{issuedate,jdbcType=TIMESTAMP}</if>
+    <if test="brief != null">
+     and brief=#{brief,jdbcType=LONGVARCHAR}</if>
+    <if test="text != null">
+     and `text`=#{text,jdbcType=LONGVARCHAR}</if>
+    <if test="file != null">
+     and `file`=#{file,jdbcType=LONGVARCHAR}</if>
+    <if test="titlepicfile != null">
+     and titlepicfile=#{titlepicfile,jdbcType=LONGVARCHAR}</if>
+    <if test="auditStatus != null">
+     and audit_status=#{auditStatus,jdbcType=VARCHAR}</if>
+    <if test="auditOpinion != null">
+     and audit_opinion=#{auditOpinion,jdbcType=LONGVARCHAR}</if>
+    <if test="auditor != null">
+     and auditor=#{auditor,jdbcType=VARCHAR}</if>
+    <if test="auditdate != null">
+     and auditDate=#{auditdate,jdbcType=TIMESTAMP}</if>
+    <if test="importance != null">
+     and importance=#{importance,jdbcType=VARCHAR}</if>
+    <if test="newsSource != null">
+     and news_source=#{newsSource,jdbcType=VARCHAR}</if>
+    <if test="disc != null">
+     and disc=#{disc,jdbcType=VARCHAR}</if>
+    <if test="tag != null">
+     and tag=#{tag,jdbcType=VARCHAR}</if>
+    <if test="top != null">
+     and `top`=#{top,jdbcType=VARCHAR}</if>
+    <if test="ctr != null">
+     and ctr=#{ctr,jdbcType=INTEGER}</if>
+    </where>
+  </select>
+</mapper>
