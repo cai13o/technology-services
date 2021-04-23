@@ -2,6 +2,7 @@ package com.zhaozheng.api;
 
 
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import com.zhaozheng.annotation.IgnoreAuth;
 import com.zhaozheng.domain.TUser;
 import com.zhaozheng.enums.ResultCodeEnum;
@@ -9,6 +10,7 @@ import com.zhaozheng.result.Result;
 import com.zhaozheng.utils.JwtUtil;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +20,11 @@ import static com.google.common.collect.Maps.newHashMap;
 
 
 // 用户信息
+@Api(tags = "app/登录")
 @RestController
 @RequestMapping("app/")
 @Slf4j
-public class UserController {
+public class AppLoginController {
   @Autowired
   private JwtUtil jwtUtil;
 
@@ -47,10 +50,23 @@ public class UserController {
     // 生成token
     // String token = jwtUtil.generateToken(user.getId());
     String token = jwtUtil.generateToken(user.getUsername());
+    String Str = HexBin.encode(token.getBytes("utf-8"));
 
     Map<String, Object> map = new HashMap<>(3);
-    map.put("token", token);
+    map.put("token", Str);
     map.put("user", user);
+    map.put("expire", jwtUtil.getExpire());
+    return Result.okApp(ResultCodeEnum.SUCCESS,map);
+  }
+
+  @IgnoreAuth
+  @PostMapping("verification")
+  @ApiOperation(value = "获取验证码", notes = "根据手机号获取")
+  public Result loginByVerification(String username) throws Exception {
+    String token = jwtUtil.generateToken(username);
+    String Str = HexBin.encode(token.getBytes("utf-8"));
+    Map<String, Object> map = new HashMap<>(2);
+    map.put("token", Str);
     map.put("expire", jwtUtil.getExpire());
     return Result.okApp(ResultCodeEnum.SUCCESS,map);
   }
